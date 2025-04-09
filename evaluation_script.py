@@ -52,6 +52,9 @@ class PastReaderEval():
     def generate_output(self, results, output_file):
         """Generate the output results."""
         if output_file:
+            if not output_file.endswith(".json"):
+                raise ValueError("Output file must be a JSON file.")
+            
             output_dir = os.path.dirname(output_file)
 
             if not output_dir:
